@@ -11,7 +11,7 @@ class Main {
 
         for (int i = 0; i < 3; i++) {
             Producer producer = new Producer(MAX_CAPACITY, queue);
-            Thread producerThread = new Thread(producer, "Producer_" + (i + 1));
+            Thread producerThread = new Thread(producer, "_" + (i + 1));
             producerThread.start();
         }
         for (int j = 0; j < 3; j++) {
