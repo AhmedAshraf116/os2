@@ -10,13 +10,13 @@ class Main {
         int MAX_CAPACITY = 5; // Queue Size
 
         for (int i = 0; i < 3; i++) {
-            Producer producer = new Producer(MAX_CAPACITY, queue);
-            Thread producerThread = new Thread(producer, "_" + (i + 1));
+            waiter  waiter = new waiter(MAX_CAPACITY, queue);
+            Thread producerThread = new Thread(waiter, "waiter_" + (i + 1));
             producerThread.start();
         }
         for (int j = 0; j < 3; j++) {
-            Consumer consumer = new Consumer(queue);
-            Thread consumerThread = new Thread(consumer, "Consumer_" + (j + 1));
+            customer customer = new customer(queue);
+            Thread consumerThread = new Thread(customer, "customer_" + (j + 1));
             consumerThread.start();
         }
     }
